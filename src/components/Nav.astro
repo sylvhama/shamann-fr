@@ -1,0 +1,79 @@
+---
+const pages = await Astro.glob<Page>("../pages/*.md");
+pages.sort((a, b) => a.frontmatter.position - b.frontmatter.position);
+---
+
+<script>
+  /**
+   * This script allows to see the CSS transitions on each page change.
+   * Transitions should not appear on very first website load.
+   */
+
+  const mainNav = document.querySelector(
+    'nav[aria-label="Navigation principale"]',
+  );
+  if (mainNav) {
+    const subsequentNav = sessionStorage.getItem("subsequentNav");
+    sessionStorage.setItem("subsequentNav", "true");
+
+    mainNav.querySelectorAll("a").forEach((link) => {
+      const hidePseudoElementsClasses = [
+        "before:opacity-0",
+        "before:scale-x-0",
+        "after:opacity-0",
+        "after:scale-x-0",
+      ];
+
+      if (link.getAttribute("aria-current") === "page") {
+        const removeClasses = () =>
+          link.classList.remove(...hidePseudoElementsClasses);
+
+        link.classList.add("text-purple", "dark:text-blue");
+        subsequentNav
+          ? window.addEventListener("load", removeClasses)
+          : removeClasses();
+      }
+    });
+  }
+</script>
+
+<nav class="py-8 sm:py-16" aria-label="Navigation principale">
+  <ul
+    class="flex flex-col justify-between text-center font-mono uppercase sm:flex-row"
+  >
+    {
+      pages.map(({ url, frontmatter: { title, shortTitle } }) => {
+        const isCurrentPage = Astro.url.pathname === (url || "/");
+        return (
+          <li class="py-4 sm:py-0 ">
+            <a
+              class="
+                before:scale-x-1 before:opacity-1 
+                after:scale-x-1 after:opacity-1 
+                after:transition-opacity-transform 
+                before:transition-opacity-transform 
+                relative text-lg 
+                leading-none	transition-colors	
+                duration-300 before:absolute 
+                before:-top-3 before:h-px 
+                before:w-full before:origin-left 
+                before:scale-x-0 before:bg-current 
+                before:opacity-0 before:duration-300 
+                after:absolute after:-bottom-3 
+                after:left-0 after:h-px 
+                after:w-full after:origin-right 
+                after:scale-x-0 after:bg-current 
+                after:opacity-0 after:duration-300
+              hover:text-pink
+              "
+              href={url || "/"}
+              aria-current={isCurrentPage ? "page" : undefined}
+            >
+              {shortTitle || title}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

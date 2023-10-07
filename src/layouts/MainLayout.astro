@@ -1,0 +1,37 @@
+---
+import Header from "@components/Header.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+  };
+}
+
+const {
+  frontmatter: { title },
+} = Astro.props;
+const fullname = "Sylvain Hamann";
+const description = "Développeur Front-End Senior";
+---
+
+<html lang="fr" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | {fullname}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body
+    class="mx-auto max-w-screen-sm bg-white px-8 pt-16 dark:bg-black dark:text-white"
+  >
+    <Header title={fullname} subtitle={description} />
+    <Nav />
+    <main><slot /></main>
+    <hr class="mx-auto my-8 w-2/4 opacity-50" />
+    <Footer />
+  </body>
+</html>
