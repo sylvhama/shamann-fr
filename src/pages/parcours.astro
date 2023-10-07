@@ -1,12 +1,56 @@
 ---
+import dayjs from "dayjs";
 import MainLayout from "@layouts/MainLayout.astro";
 import Section from "@components/Section.astro";
 
 const title = "Parcours";
 ---
 
+<script>
+  import dayjs from "dayjs";
+  const startDate = dayjs("2013-09-01");
+  const today = dayjs();
+  const years = today.diff(startDate, "year");
+  const months = today.diff(startDate, "month") - years * 12;
+  const text = `${years} ans${months > 0 ? ` et ${months} mois` : ""}`;
+
+  const rainbowText = document.querySelector("#rainbow-text");
+  if (rainbowText) {
+    const isAnimatable = window.matchMedia(
+      "(prefers-reduced-motion: no-preference)",
+    ).matches;
+
+    if (isAnimatable) {
+      let html = "";
+      const commonClasses = "inline-block whitespace-break-spaces";
+      text.split("").forEach((char, index) => {
+        const span = `<span class="${commonClasses} animate-slidein" style="--index: ${index}"><span class="${commonClasses} animate-rainbow">${char}</span></span>`;
+        html = html + span;
+      });
+      rainbowText.innerHTML = html;
+    } else {
+      rainbowText.textContent = text;
+    }
+  }
+</script>
+
 <MainLayout title={title}>
   <Section title={title}>
+    <p class="sr-only">
+      Je travaille dans le Web depuis le {
+        dayjs("2013-09-01").format("DD/MM/YYYY")
+      }
+    </p>
+
+    <div aria-hidden="true">
+      <p class="pb-3">Je travaille dans le Web depuis</p>
+      <div
+        id="rainbow-text"
+        class="pb-3 text-center font-mono text-xl uppercase sm:text-3xl"
+      >
+      </div>
+    </div>
+
     <h3 class="py-4 font-mono text-xl">
       Apr 2023 - Oct 2023 <span aria-hidden="true">🐇 ✈️</span>
     </h3>
