@@ -1,0 +1,17 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Section from "@components/Section.astro";
+
+const title = "À Propos de Moi";
+---
+
+<MainLayout title={title}>
+  <Section title={title}>
+    <p>
+      Je suis un expatrié Français basé à Montréal en télétravail. J'
+      <span role="presentation">💖</span>
+      <span class="sr-only">aime</span> créer des expériences utilisateur
+      accessibles et performantes avec <em>React</em>.
+    </p>
+  </Section>
+</MainLayout>

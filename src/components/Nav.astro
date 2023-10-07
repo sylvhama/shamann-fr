@@ -1,6 +1,10 @@
 ---
-const pages = await Astro.glob<Page>("../pages/*.mdx");
-pages.sort((a, b) => a.frontmatter.position - b.frontmatter.position);
+const pages = [
+  { title: "À propos", url: "/" },
+  { title: "Parcours", url: "/parcours" },
+  { title: "Vitrine", url: "/vitrine" },
+  { title: "Articles & Présentations", url: "/articles-presentations" },
+];
 ---
 
 <script>
@@ -42,8 +46,8 @@ pages.sort((a, b) => a.frontmatter.position - b.frontmatter.position);
     class="flex flex-col justify-between text-center font-mono uppercase sm:flex-row"
   >
     {
-      pages.map(({ url, frontmatter: { title, shortTitle } }) => {
-        const isCurrentPage = Astro.url.pathname === (url || "/");
+      pages.map(({ url, title }) => {
+        const isCurrentPage = Astro.url.pathname === url;
         return (
           <li class="py-4 sm:py-0 ">
             <a
@@ -66,10 +70,10 @@ pages.sort((a, b) => a.frontmatter.position - b.frontmatter.position);
                 after:transition-opacity-transform after:duration-300
               hover:text-pink
               "
-              href={url || "/"}
+              href={url}
               aria-current={isCurrentPage ? "page" : undefined}
             >
-              {shortTitle || title}
+              {title}
             </a>
           </li>
         );

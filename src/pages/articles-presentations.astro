@@ -1,0 +1,139 @@
+---
+import { Image } from "astro:assets";
+import MainLayout from "@layouts/MainLayout.astro";
+import Section from "@components/Section.astro";
+import speaker from "@images/shamann-speaker.jpg";
+
+const title = "Articles & Présentations";
+---
+
+<MainLayout title={title}>
+  <Section title={title}>
+    <Image
+      class="mx-auto mb-4 h-[220px] w-[220px] sm:float-left sm:mb-0 sm:mr-4"
+      src={speaker}
+      alt="Collage de photos de différents Meetup"
+      quality="max"
+      width={440}
+      height={440}
+    />
+    <p class="pb-3 text-left after:clear-both">
+      J'ai fait des présentations lors de plusieurs Meetup à Séoul, Tokyo et
+      Montréal. J'ai également co-organisé des rencontres publiques et internes
+      chez Ubisoft Montréal et Shopify. De temps en temps, je crée des <a
+        class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+        href="https://www.youtube.com/playlist?list=PL3jMq0AMfCCeiXYJFp0HNLCR5uMZsMPs7"
+        >vidéos en français</a
+      > où je partage mes expériences en tant que développeur front-end.
+    </p>
+
+    <h3 class="py-4 font-mono text-xl">Mes articles en Anglais</h3>
+    <ul class="list-disc pl-10">
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://dev.to/sylvhama/gpt-is-my-new-bff-backend-for-frontends-1g03"
+          >GPT is my new BFF (Backend for Frontends)</a
+        >
+         - Mar 28, 2023
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://dev.to/sylvhama/use-css-to-pass-an-element-through-your-letters-2ad3"
+          >Use CSS to pass an element through your letters</a
+        >
+         - Feb 1, 2023
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://dev.to/sylvhama/how-to-test-your-web-app-accessibility-26di"
+          >How to test your web app accessibility?</a
+        >
+         - Jun 21, 2022
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://github.com/sylvhama/pwa-links"
+          >Progressive Web Apps links</a
+        >
+         - Jun 17, 2020
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://dev.to/sylvhama/multi-directional-navigation-31k2"
+          >Multi Directional Navigation</a
+        >
+         - Jun 8, 2020
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://github.com/sylvhama/modern-js"
+          >Road to Modern JavaScript and React</a
+        >
+         - Nov 8, 2017
+      </li>
+    </ul>
+
+    <h3 class="py-4 font-mono text-xl">Mes présentations en Anglais</h3>
+    <ul class="list-disc pl-10">
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://howtotestyourwebappa11y.netlify.app/1"
+          >How to test your web app a11y?</a
+        >
+         - React &amp; React Native MTL Meetup at Busbud - May 10, 2023
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://github.com/sylvhama/intro-to-styled-components"
+          >Introduction to Styled Components</a
+        >
+         - MTL FED Talks (Shopify) - Aug 19, 2019
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://github.com/sylvhama/bringing-the-www-to-the-aaa"
+          >Bringing the WWW to the AAA</a
+        >
+         - Let's React Meetup at Breather (MTL) - Jan 11, 2019
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://github.com/sylvhama/introduction-to-pwa"
+          >Introduction to Progressive Web Apps</a
+        >
+         - JS Montreal Meetup at La Gare - Nov 14, 2017
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://github.com/sylvhama/slides/tree/master/chausettes"
+          >Put your sockets on, a small intro to socket.io and rooms in
+          Node.js®</a
+        >
+         - TokyoJS Meetup at Tokyo Square Garden - Dec 14, 2015
+      </li>
+      <li>
+        <a
+          class="text-purple hover:text-pink hover:underline dark:text-blue dark:hover:text-pink"
+          href="https://github.com/sylvhama/slides/tree/master/phaser"
+          >My first game with Phaser</a
+        >
+         - TokyoJS Meetup at 21 Cafe - Sep 14, 2015
+      </li>
+      <li>
+        Let's make a HTML5 game with Phaser! - Seoul Web Technology Meetup at
+        Asiance - Mar 5, 2015
+      </li>
+    </ul>
+  </Section>
+</MainLayout>

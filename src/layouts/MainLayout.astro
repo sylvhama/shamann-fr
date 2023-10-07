@@ -4,14 +4,10 @@ import Nav from "@components/Nav.astro";
 import Footer from "@components/Footer.astro";
 
 interface Props {
-  frontmatter?: {
-    title: string;
-  };
-  title?: string;
+  title: string;
 }
 
-const { title: titleProp, frontmatter } = Astro.props;
-const title = titleProp || frontmatter?.title;
+const { title } = Astro.props;
 const fullname = "Sylvain Hamann";
 const description = "Développeur Front-End Senior";
 ---
