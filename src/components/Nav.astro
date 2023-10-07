@@ -1,5 +1,5 @@
 ---
-const pages = await Astro.glob<Page>("../pages/*.md");
+const pages = await Astro.glob<Page>("../pages/*.mdx");
 pages.sort((a, b) => a.frontmatter.position - b.frontmatter.position);
 ---
 
