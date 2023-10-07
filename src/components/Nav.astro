@@ -50,20 +50,20 @@ pages.sort((a, b) => a.frontmatter.position - b.frontmatter.position);
               class="
                 before:scale-x-1 before:opacity-1 
                 after:scale-x-1 after:opacity-1 
-                after:transition-opacity-transform 
-                before:transition-opacity-transform 
-                relative text-lg 
-                leading-none	transition-colors	
-                duration-300 before:absolute 
+                relative 
+                text-lg 
+                leading-none transition-colors 
+                duration-300	before:absolute	
                 before:-top-3 before:h-px 
                 before:w-full before:origin-left 
                 before:scale-x-0 before:bg-current 
-                before:opacity-0 before:duration-300 
-                after:absolute after:-bottom-3 
-                after:left-0 after:h-px 
-                after:w-full after:origin-right 
-                after:scale-x-0 after:bg-current 
-                after:opacity-0 after:duration-300
+                before:opacity-0 before:transition-opacity-transform 
+                before:duration-300 after:absolute 
+                after:-bottom-3 after:left-0 
+                after:h-px after:w-full 
+                after:origin-right after:scale-x-0 
+                after:bg-current after:opacity-0 
+                after:transition-opacity-transform after:duration-300
               hover:text-pink
               "
               href={url || "/"}

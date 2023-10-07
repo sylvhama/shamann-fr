@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+}
+
+const ID = "page-title";
+const { title } = Astro.props;
+---
+
+<section aria-labelledby={ID}>
+  <h2 id={ID} class="sr-only">{title}</h2>
+  <slot />
+</section>

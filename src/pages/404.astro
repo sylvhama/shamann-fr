@@ -1,5 +1,19 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
+import Section from "@components/Section.astro";
+import { Image } from "astro:assets";
+import gif from "@images/travolta.gif";
+
+const title = "404 page inexistante";
 ---
 
-<MainLayout title="404 page inexistante">Allo</MainLayout>
+<MainLayout {title}>
+  <Section title={title}>
+    <Image
+      class="m-auto"
+      width={260}
+      src={gif}
+      alt="Scène dans Pulp Fiction où John Travolta est confus"
+    />
+  </Section>
+</MainLayout>

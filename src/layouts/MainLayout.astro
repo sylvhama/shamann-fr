@@ -26,11 +26,11 @@ const description = "Développeur Front-End Senior";
     <meta name="description" content={description} />
   </head>
   <body
-    class="mx-auto max-w-screen-sm bg-white px-8 pt-16 dark:bg-black dark:text-white"
+    class="mx-auto max-w-screen-sm bg-white px-4 pt-8 dark:bg-black dark:text-white sm:pt-16 sm:text-[1.15rem]"
   >
     <Header title={fullname} subtitle={description} />
     <Nav />
-    <main>
+    <main class="text-justify">
       <slot />
     </main>
     <hr class="mx-auto my-8 w-2/4 opacity-50" />
