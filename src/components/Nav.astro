@@ -13,31 +13,28 @@ const pages = [
    * Transitions should not appear on very first website load.
    */
 
-  const mainNav = document.querySelector(
-    'nav[aria-label="Navigation principale"]',
+  const subsequentNav = sessionStorage.getItem("subsequentNav");
+  sessionStorage.setItem("subsequentNav", "true");
+
+  const currentNavLink = document.querySelector(
+    'nav[aria-label="Navigation principale"] a[aria-current="page"]',
   );
-  if (mainNav) {
-    const subsequentNav = sessionStorage.getItem("subsequentNav");
-    sessionStorage.setItem("subsequentNav", "true");
 
-    mainNav.querySelectorAll("a").forEach((link) => {
-      const hidePseudoElementsClasses = [
-        "before:opacity-0",
-        "before:scale-x-0",
-        "after:opacity-0",
-        "after:scale-x-0",
-      ];
+  if (currentNavLink) {
+    const classesToHidePseudoElements = [
+      "before:opacity-0",
+      "before:scale-x-0",
+      "after:opacity-0",
+      "after:scale-x-0",
+    ];
 
-      if (link.getAttribute("aria-current") === "page") {
-        const removeClasses = () =>
-          link.classList.remove(...hidePseudoElementsClasses);
+    const removeClasses = () =>
+      currentNavLink.classList.remove(...classesToHidePseudoElements);
 
-        link.classList.add("text-purple", "dark:text-blue");
-        subsequentNav
-          ? window.addEventListener("load", removeClasses)
-          : removeClasses();
-      }
-    });
+    currentNavLink.classList.add("text-purple", "dark:text-blue");
+    subsequentNav
+      ? window.addEventListener("load", removeClasses)
+      : removeClasses();
   }
 </script>
 
