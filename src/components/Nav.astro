@@ -7,7 +7,7 @@ const pages = [
 ];
 
 function trimLastSlash(value: string) {
-  if (value.endsWith("/")) {
+  if (value.endsWith("/") && value.length > 1) {
     return value.slice(0, -1);
   } else {
     return value;
