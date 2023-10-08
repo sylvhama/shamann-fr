@@ -15,16 +15,27 @@ export function trimLastSlash(value: string) {
 }
 ---
 
-<script>
-  /**
-   * This script allows to see the CSS transitions on each page change.
-   */
+<script is:inline>
+/**
+ * This script allows to see the CSS transitions on each page change.
+ * The very first visit should not show the transition.
+ */
+window.addEventListener("load", () => {
+  const subsequentNav = sessionStorage.getItem("subsequentNav");
+  sessionStorage.setItem("subsequentNav", "true");
+
   const currentNavLink = document.querySelector(
     'nav[aria-label="Navigation principale"] a[aria-current="page"]',
   );
 
   if (currentNavLink) {
     currentNavLink.classList.add("text-purple", "dark:text-blue");
+    if (!subsequentNav) {
+      currentNavLink.classList.remove(
+        "before:transition-opacity-transform",
+        "after:transition-opacity-transform",
+      );
+    }
     currentNavLink.classList.remove(
       "hover:text-pink",
       "focus:text-pink",
@@ -34,6 +45,7 @@ export function trimLastSlash(value: string) {
       "after:scale-x-0",
     );
   }
+});
 </script>
 
 <nav class="py-8 sm:py-16" aria-label="Navigation principale">
