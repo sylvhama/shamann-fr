@@ -10,6 +10,7 @@ interface Props {
 
 const { title } = Astro.props;
 const fullname = "Sylvain Hamann";
+const seoTitle = `${title} | ${fullname}`;
 const description = "Développeur Front-End Senior";
 ---
 
@@ -20,16 +21,16 @@ const description = "Développeur Front-End Senior";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href="https://shamann.dev" />
-    <title>{title} | {fullname}</title>
+    <title>{seoTitle}</title>
     <meta name="description" content={description} />
 
     <meta name="twitter:image" content="https://shamann.dev/shamann.png" />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={seoTitle} />
     <meta name="twitter:site" content="@sylvhama" />
     <meta name="twitter:card" content="summary" />
 
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={seoTitle} />
     <meta property="og:image" content="https://shamann.dev/shamann.png" />
     <meta property="og:image:height" content="500" />
     <meta property="og:image:width" content="500" />
