@@ -18,32 +18,21 @@ export function trimLastSlash(value: string) {
 <script>
   /**
    * This script allows to see the CSS transitions on each page change.
-   * Transitions should not appear on very first website load.
    */
-
-  const subsequentNav = sessionStorage.getItem("subsequentNav");
-  sessionStorage.setItem("subsequentNav", "true");
-
   const currentNavLink = document.querySelector(
     'nav[aria-label="Navigation principale"] a[aria-current="page"]',
   );
 
   if (currentNavLink) {
-    const classesToHidePseudoElements = [
+    currentNavLink.classList.add("text-purple", "dark:text-blue");
+    currentNavLink.classList.remove(
+      "hover:text-pink",
+      "focus:text-pink",
       "before:opacity-0",
       "before:scale-x-0",
       "after:opacity-0",
       "after:scale-x-0",
-    ];
-
-    const removeClasses = () =>
-      currentNavLink.classList.remove(...classesToHidePseudoElements);
-
-    currentNavLink.classList.add("text-purple", "dark:text-blue");
-    currentNavLink.classList.remove("hover:text-pink", "focus:text-pink");
-    subsequentNav
-      ? window.addEventListener("load", removeClasses)
-      : removeClasses();
+    );
   }
 </script>
 
