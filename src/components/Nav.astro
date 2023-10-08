@@ -39,7 +39,7 @@ function trimLastSlash(value: string) {
     const removeClasses = () =>
       currentNavLink.classList.remove(...classesToHidePseudoElements);
 
-    currentNavLink.classList.add("text-purple", "dark:text-blue");
+    currentNavLink.classList.add("text-purple", "dark:text-blue font-mono");
     currentNavLink.classList.remove("hover:text-pink", "focus:text-pink");
     subsequentNav
       ? window.addEventListener("load", removeClasses)
