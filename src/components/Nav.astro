@@ -5,6 +5,14 @@ const pages = [
   { title: "Vitrine", url: "/vitrine" },
   { title: "Articles & Présentations", url: "/articles-presentations" },
 ];
+
+function trimLastSlash(value: string) {
+  if (value.endsWith("/")) {
+    return value.slice(0, -1);
+  } else {
+    return value;
+  }
+}
 ---
 
 <script>
@@ -45,7 +53,7 @@ const pages = [
   >
     {
       pages.map(({ url, title }) => {
-        const isCurrentPage = Astro.url.pathname === url;
+        const isCurrentPage = trimLastSlash(Astro.url.pathname) === url;
         return (
           <li class="py-4 leading-none sm:py-0">
             <a
