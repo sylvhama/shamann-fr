@@ -1,5 +1,25 @@
 ---
+import { trimLastSlash } from "./Nav.astro";
 import ToggleTheme from "./ToggleTheme.astro";
+
+function getEnglishUrl() {
+  const base = "https://shamann.dev";
+  let pathname = "";
+  switch (trimLastSlash(Astro.url.pathname)) {
+    case "/parcours":
+      pathname = "/relevant-experience";
+      break;
+    case "/vitrine":
+      pathname = "/showcase";
+      break;
+    case "/articles-presentations":
+      pathname = "/articles-talks";
+      break;
+    default:
+      break;
+  }
+  return base + pathname;
+}
 ---
 
 <aside
@@ -8,7 +28,7 @@ import ToggleTheme from "./ToggleTheme.astro";
 >
   <a
     class="font-mono text-sm text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink"
-    href="https://shamann.dev"
+    href={getEnglishUrl()}
   >
     English
   </a>

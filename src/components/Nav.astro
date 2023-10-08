@@ -6,7 +6,7 @@ const pages = [
   { title: "Articles & Présentations", url: "/articles-presentations" },
 ];
 
-function trimLastSlash(value: string) {
+export function trimLastSlash(value: string) {
   if (value.endsWith("/") && value.length > 1) {
     return value.slice(0, -1);
   } else {
