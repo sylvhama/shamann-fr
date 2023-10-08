@@ -47,7 +47,7 @@ const pages = [
       pages.map(({ url, title }) => {
         const isCurrentPage = Astro.url.pathname === url;
         return (
-          <li class="py-4 sm:py-0 ">
+          <li class="py-4 leading-none sm:py-0">
             <a
               class="
                 before:scale-x-1 before:opacity-1 
