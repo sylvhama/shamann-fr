@@ -1,1 +1,1 @@
-French version of https://github.dev/sylvhama/shamann-gatsby re-written with [Astro](https://astro.build/) and [Tailwind](https://tailwindcss.com/).
+My website (https://github.dev/sylvhama/shamann-gatsby) never had a French version. Instead of using an i18n library I decided to re-write it with [Astro](https://astro.build/) and [Tailwind](https://tailwindcss.com/). The English version still relies on Gatsby and CSS Modules. Reproducing each layout and design was a great learning opportunity in order to compare each tech pros and cons.
