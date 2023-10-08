@@ -1,0 +1,16 @@
+---
+import ToggleTheme from "./ToggleTheme.astro";
+---
+
+<aside
+  aria-label="Changer de mode ou de langue"
+  class="absolute right-4 top-4 flex items-center gap-4"
+>
+  <a
+    class="text-sm text-purple underline hover:text-pink focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink"
+    href="https://shamann.dev"
+  >
+    English
+  </a>
+  <ToggleTheme />
+</aside>

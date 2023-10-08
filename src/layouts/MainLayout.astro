@@ -1,7 +1,8 @@
 ---
+import Aside from "@components/Aside.astro";
+import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import Nav from "@components/Nav.astro";
-import Footer from "@components/Footer.astro";
 
 interface Props {
   title: string;
@@ -12,7 +13,7 @@ const fullname = "Sylvain Hamann";
 const description = "Développeur Front-End Senior";
 ---
 
-<html lang="fr" class="dark">
+<html lang="fr" class="">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -24,12 +25,13 @@ const description = "Développeur Front-End Senior";
   <body
     class="mx-auto max-w-screen-sm bg-white px-4 pt-8 dark:bg-black dark:text-white sm:pt-16 sm:text-[1.15rem]"
   >
+    <Aside />
     <Header title={fullname} subtitle={description} />
     <Nav />
     <main class="text-justify">
       <slot />
     </main>
-    <hr class="mx-auto my-8 w-2/4 opacity-50" />
+    <hr class="mx-auto my-8 w-2/4 border-black opacity-50 dark:border-white" />
     <Footer />
   </body>
 </html>
