@@ -1,0 +1,18 @@
+---
+import clsx from "clsx";
+
+interface Props {
+  href: string;
+  className?: string;
+}
+
+const { href, className } = Astro.props;
+---
+
+<a
+  class={clsx(
+    "inline-flex font-mono text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink",
+    className,
+  )}
+  href={href}><slot /></a
+>

@@ -1,6 +1,7 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import Section from "@components/Section.astro";
+import Anchor from "@components/Anchor.astro";
 
 const title = "Vitrine";
 ---
@@ -21,14 +22,15 @@ const title = "Vitrine";
       développement tout en améliorant les performances de l'application. Le
       projet fût un succès, le temps de chargement etait passé de 5,4 secondes à
       2,2 secondes. Nous l'avons même porté sur Nintendo Switch par la suite.
-      J'ai écrit un article plus détaillé à ce sujet que vous pouvez <a
-        class="font-mono text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink"
+      J'ai écrit un article plus détaillé à ce sujet que vous pouvez <Anchor
         href="https://dev.to/sylvhama/multi-directional-navigation-31k2"
-        >consulter ici</a
-      >. Voici aussi une <a
-        class="font-mono text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink"
-        href="https://youtu.be/1s712yQ3NY0?t=34">vidéo</a
       >
+        consulter ici
+      </Anchor>. Voici aussi une <Anchor
+        href="https://youtu.be/1s712yQ3NY0?t=34"
+      >
+        vidéo
+      </Anchor>
        enregistrée par un joueur montrant le résultat final.
     </p>
 
@@ -39,10 +41,11 @@ const title = "Vitrine";
       2D où chaque case peut être un mur, un sol praticable, etc. Il y avait un
       éditeur pour concevoir votre carte en dessinant chaque tuile ou en plaçant
       des sprites spéciaux. J'ai utilisé un algorithme de recherche de chemin
-      pour dessiner le chemin le plus court entre deux tuiles. Voici une <a
-        class="font-mono text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink"
-        href="https://www.youtube.com/watch?v=fL5GDCH7VpM">vidéo</a
-      > montrant le résultat.
+      pour dessiner le chemin le plus court entre deux tuiles. Voici une <Anchor
+        href="https://www.youtube.com/watch?v=fL5GDCH7VpM"
+      >
+        vidéo
+      </Anchor> montrant le résultat.
     </p>
 
     <h3 class="py-4 font-mono text-xl">
@@ -56,15 +59,17 @@ const title = "Vitrine";
       également une immense feuille de calcul pour vérifier si chaque invité
       était correctement enregistré. Il voulait une application plus élégante
       qui fonctionnerait même dans des endroits totalement déconnectés
-      d'Internet. À l'époque, le concept de <a
-        class="font-mono text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink"
-        href="https://github.com/sylvhama/pwa-links">Provessive Web App</a
-      > et de service worker n'existait pas encore. Mais j'ai quand même réussi
-      à développer une application web hors ligne via l'API d'appCache. Voici <a
-        class="font-mono text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink"
+      d'Internet. À l'époque, le concept de <Anchor
+        href="https://github.com/sylvhama/pwa-links"
+      >
+        Provessive Web App
+      </Anchor> et de service worker n'existait pas encore. Mais j'ai quand même
+      réussi à développer une application web hors ligne via l'API d'appCache.
+      Voici <Anchor
         href="https://sylvhama.notion.site/sylvhama/My-Portfolio-5e616652b45249b0ae69dda6b23d73e3?p=a3affc20c05847e4b99f007f4bce51df&pm=c"
-        >quelques photos</a
-      > prises lors d'un des événements.
+      >
+        quelques photos
+      </Anchor> prises lors d'un des événements.
     </p>
   </Section>
 </MainLayout>
