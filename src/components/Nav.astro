@@ -30,10 +30,13 @@ window.addEventListener("load", () => {
 
   if (currentNavLink) {
     currentNavLink.classList.add("text-purple", "dark:text-blue");
+    console.log({ subsequentNav });
     if (!subsequentNav) {
       currentNavLink.classList.remove(
         "before:transition-opacity-transform",
         "after:transition-opacity-transform",
+        "before:duration-300",
+        "after:duration-300",
       );
     }
     currentNavLink.classList.remove(
