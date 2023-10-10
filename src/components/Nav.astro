@@ -1,18 +1,11 @@
 ---
+import { trimLastSlash } from "@utils";
 const pages = [
   { title: "À propos", url: "/" },
   { title: "Parcours", url: "/parcours" },
   { title: "Vitrine", url: "/vitrine" },
   { title: "Articles & Présentations", url: "/articles-presentations" },
 ];
-
-export function trimLastSlash(value: string) {
-  if (value.endsWith("/") && value.length > 1) {
-    return value.slice(0, -1);
-  } else {
-    return value;
-  }
-}
 ---
 
 <script is:inline>

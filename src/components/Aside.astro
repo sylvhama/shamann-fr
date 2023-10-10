@@ -1,32 +1,15 @@
 ---
 import Anchor from "./Anchor.astro";
-import { trimLastSlash } from "./Nav.astro";
 import ToggleTheme from "./ToggleTheme.astro";
-
-function getEnglishUrl() {
-  const base = "https://shamann.dev";
-  let pathname = "";
-  switch (trimLastSlash(Astro.url.pathname)) {
-    case "/parcours":
-      pathname = "/relevant-experience";
-      break;
-    case "/vitrine":
-      pathname = "/showcase";
-      break;
-    case "/articles-presentations":
-      pathname = "/articles-talks";
-      break;
-    default:
-      break;
-  }
-  return base + pathname;
-}
+import { getEnglishUrl } from "@utils";
 ---
 
 <aside
   aria-label="Changer de mode ou de langue"
   class="absolute right-4 top-4 flex items-center gap-4"
 >
-  <Anchor className="text-sm" href={getEnglishUrl()}>English</Anchor>
+  <Anchor className="text-sm" href={getEnglishUrl(Astro.url.pathname)}>
+    English
+  </Anchor>
   <ToggleTheme />
 </aside>
