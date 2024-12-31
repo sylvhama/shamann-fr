@@ -8,7 +8,7 @@ import { getEnglishUrl } from "@utils";
   aria-label="Changer de mode ou de langue"
   class="absolute right-4 top-4 flex items-center gap-4"
 >
-  <Anchor className="text-sm" href={getEnglishUrl(Astro.url.pathname)}>
+  <Anchor className="text-sm" href={getEnglishUrl(Astro.url.pathname)} lang="en">
     English
   </Anchor>
   <ToggleTheme />

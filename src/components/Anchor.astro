@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-const { href, className } = Astro.props;
+const { href, className, ..restProps } = Astro.props;
 ---
 
 <a
@@ -14,5 +14,6 @@ const { href, className } = Astro.props;
     "inline-flex font-mono text-purple hover:text-pink hover:underline focus:text-pink dark:text-blue dark:hover:text-pink dark:focus:text-pink",
     className,
   )}
-  href={href}><slot /></a
+  href={href}
+  {...restProps}><slot /></a
 >
