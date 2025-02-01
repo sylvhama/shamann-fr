@@ -4,18 +4,39 @@ const rightLabel = "Activer mode sombre";
 const name = "dark-mode";
 const leftValue = "light";
 const rightValue = "dark";
+
+const colors = {
+  black: "#1d1e26",
+  white: "#f8f8f2",
+};
+
+declare global {
+  interface Window {
+    THEME_COLORS: Record<string, string>;
+  }
+}
 ---
 
-<script is:inline>
-if (
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
-} else {
-  document.documentElement.classList.remove("dark");
-}
+<script is:inline define:vars={{ colors }}>
+  let themeColor;
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    themeColor = colors.black;
+    document.documentElement.classList.add("dark");
+  } else {
+    themeColor = colors.white;
+    document.documentElement.classList.remove("dark");
+  }
+  if (themeColor) {
+    const themeColorTag = document.createElement("meta");
+    themeColorTag.name = "theme-color";
+    themeColorTag.content = themeColor;
+    document.head.appendChild(themeColorTag);
+    window.THEME_COLORS = colors;
+  }
 </script>
 
 <script>
@@ -37,12 +58,21 @@ if (
       input.addEventListener("change", (event) => {
         document.body.classList.add("duration-300");
         const target = event.target as HTMLInputElement;
+        const themeColorTag = document.querySelector<HTMLMetaElement>(
+          'meta[name="theme-color"]'
+        );
         if (target.value === "dark") {
           localStorage.theme = "dark";
           document.documentElement.classList.add("dark");
+          if (themeColorTag) {
+            themeColorTag.content = window.THEME_COLORS.black;
+          }
         } else {
           localStorage.theme = "light";
           document.documentElement.classList.remove("dark");
+          if (themeColorTag) {
+            themeColorTag.content = window.THEME_COLORS.white;
+          }
         }
       });
     });
