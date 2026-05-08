@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import portrait from "@images/shamann-portrait.png";
-
 interface Props {
   title: string;
   subtitle: string;
@@ -10,17 +7,7 @@ interface Props {
 const { title, subtitle } = Astro.props;
 ---
 
-<header class="flex flex-col items-center justify-center sm:flex-row">
-  <Image
-    class="h-[100px] w-[100px] rounded-full"
-    src={portrait}
-    alt="Portrait de Sylvain Hamann"
-    quality="max"
-    width={200}
-    height={200}
-  />
-  <div class="text-center font-mono sm:text-left">
-    <h1 class="pb-4 text-[2rem] font-bold leading-none">{title}</h1>
-    <h2 class="text-[1rem] leading-none">{subtitle}</h2>
-  </div>
+<header class="text-center font-mono">
+  <h1 class="pb-4 text-[2rem] font-bold leading-none">{title}</h1>
+  <h2 class="text-[1rem] leading-none">{subtitle}</h2>
 </header>

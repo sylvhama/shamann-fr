@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import MainLayout from "@layouts/MainLayout.astro";
 import Section from "@components/Section.astro";
-import speaker from "@images/shamann-speaker.jpg";
 import Anchor from "@components/Anchor.astro";
 
 const title = "Articles & Présentations";
@@ -10,14 +8,6 @@ const title = "Articles & Présentations";
 
 <MainLayout title={title}>
   <Section title={title}>
-    <Image
-      class="mx-auto mb-4 h-[220px] w-[220px] sm:float-left sm:mb-0 sm:mr-4"
-      src={speaker}
-      alt="Collage de photos de différents Meetup"
-      quality="max"
-      width={440}
-      height={440}
-    />
     <p class="pb-3 text-left after:clear-both">
       J'ai fait des présentations lors de plusieurs Meetup à Séoul, Tokyo et
       Montréal. J'ai également co-organisé des rencontres publiques et internes

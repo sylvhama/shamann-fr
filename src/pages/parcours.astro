@@ -18,7 +18,7 @@ const title = "Parcours";
   const rainbowText = document.querySelector("#rainbow-text");
   if (rainbowText) {
     const isAnimatable = window.matchMedia(
-      "(prefers-reduced-motion: no-preference)"
+      "(prefers-reduced-motion: no-preference)",
     ).matches;
 
     if (isAnimatable) {
@@ -47,7 +47,7 @@ const title = "Parcours";
       <p class="pb-3">Je travaille dans le Web depuis</p>
       <div
         id="rainbow-text"
-        class="pb-3 text-center font-mono text-xl uppercase sm:text-3xl min-h-[2.5rem] sm:min-h-[3rem]"
+        class="min-h-[2.5rem] pb-3 text-center font-mono text-xl uppercase sm:min-h-[3rem] sm:text-3xl"
       >
       </div>
     </div>
@@ -57,8 +57,8 @@ const title = "Parcours";
     </h3>
     <p class="pb-3">
       Je suis retourné chez Shopify en tant que développeur front-end senior. Je
-      contribue à la plateforme New Customer Accounts ainsi qu'à sa <Anchor
-        href="https://shopify.dev/docs/api/customer-account-ui-extensions/unstable/components"
+      contribue à la plateforme Customer Accounts & Sign-in ainsi qu'à sa <Anchor
+        href="https://shopify.dev/docs/api/customer-account-ui-extensions/latest/web-components"
       >
         bibliothèque de composants
       </Anchor>, tout en promouvant les bonnes pratiques en matière
